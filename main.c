@@ -1,39 +1,38 @@
 #include <stdio.h>
 
-int main()
-{
+int main() {
+    // Tabuleiro 10x10 inicializado com água (0)
+    int tabuleiro[10][10] = {0};
 
-    int posicao_linha;
-    int posicao_coluna;
+    // Navios com tamanho 3
     int navio1[3] = {3, 3, 3};
-    int navio2[3] = {3, 3, 3};
+    int navio2[3] = {3, 3, 3}; 
 
-    char tabuleiro[10][10] = {
-        {'0', '0', '0', '0', '0', '0', '0', '0', '0', '0'},
-        {'0', '0', '0', '0', '0', '0', '0', '0', '0', '0'},
-        {'0', '0', '0', '0', '0', '0', '0', '0', '0', '0'},
-        {'0', '0', '0', '0', '0', '0', '0', '0', '0', '0'},
-        {'0', '0', '0', '0', '0', '0', '0', '0', '0', '0'},
-        {'0', '0', '0', '0', '0', '0', '0', '0', '0', '0'},
-        {'0', '0', '0', '0', '0', '0', '0', '0', '0', '0'},
-        {'0', '0', '0', '0', '0', '0', '0', '0', '0', '0'},
-        {'0', '0', '0', '0', '0', '0', '0', '0', '0', '0'},
-        {'0', '0', '0', '0', '0', '0', '0', '0', '0', '0'}
-    };
+    // Posição inicial do navio1 (horizontal)
+    int linha1 = 2;
+    int coluna1 = 4;
 
-    for (int i = 0; i < 10; i++)
-    {
-        for (int j = 0; j < 10; j++)
-        {
-            /*
-            printf("Indique em qual Linha posicionar o navio1: \n");
-            scanf("%d", &posicao_linha);
-            printf("Indique em qual Coluna posicionar o navio1: \n");
-            scanf("%d", &posicao_coluna);
-            */
-            printf("%c ", tabuleiro[i][j]);
+    // Posição inicial do navio2 (vertical)
+    int linha2 = 5;
+    int coluna2 = 7;
+
+    // navio1 na horizontal
+    for (int i = 0; i < 3; i++) {
+        tabuleiro[linha1][coluna1 + i] = navio1[i];
+    }
+
+    // navio2 na horizontal
+    for (int i = 0; i < 3; i++) {
+        tabuleiro[linha2 + i][coluna2] = navio2[i];
+    }
+
+    // Exibir o tabuleiro
+    printf("Tabuleiro:\n\n");
+    for (int i = 0; i < 10; i++) {
+        for (int j = 0; j < 10; j++) {
+            printf("%d ", tabuleiro[i][j]);
         }
-        printf("\n"); // quebra linha
+        printf("\n");
     }
 
     return 0;
